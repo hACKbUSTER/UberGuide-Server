@@ -99,3 +99,142 @@ data
   }
 ]
 ```
+
+
+
+
+
+
+__uber::access_token__
+
+params
+
+```
+{
+	access_token : access token of user
+}
+```
+
+data
+
+```
+whatever
+```
+
+__uber::current_trip__
+
+
+
+params
+
+```
+{
+	request_id : current request id
+}
+```
+
+data
+
+```
+{
+  "result": {
+    "data": {
+      "response": {
+        "statusCode": 200,
+        "body": "{\"status\":\"accepted\",\"destination\":{\"latitude\":39.9087177183,\"longitude\":116.397387524},\"request_id\":\"f9542088-35d1-40b4-aeb4-8f751e0265e4\",\"driver\":{\"phone_number\":\"(555)555-5555\",\"rating\":4.9,\"picture_url\":\"https:\\/\\/d1a3f4spazzrp4.cloudfront.net\\/uberex-sandbox\\/images\\/driver.jpg\",\"name\":\"John\"},\"pickup\":{\"latitude\":39.9081903646,\"eta\":1,\"longitude\":116.3228380886},\"eta\":1,\"location\":{\"latitude\":39.9081903646,\"bearing\":-150,\"longitude\":116.3228380886},\"vehicle\":{\"make\":\"Toyota\",\"picture_url\":\"https:\\/\\/d1a3f4spazzrp4.cloudfront.net\\/uberex-sandbox\\/images\\/prius.jpg\",\"model\":\"Prius\",\"license_plate\":\"UBER-PLATE\"},\"surge_multiplier\":1.0}",
+        "headers": {
+          "server": "nginx",
+          "date": "Sat, 16 Jan 2016 17:01:20 GMT",
+          "content-type": "application/json",
+          "content-length": "647",
+          "connection": "close",
+          "x-rate-limit-remaining": "1998",
+          "content-language": "en",
+          "content-geo-system": "gcj-02",
+          "etag": "\"647210dfa5a3be5f96eacce118452806d08381c2\"",
+          "x-rate-limit-reset": "1452967200",
+          "x-rate-limit-limit": "2000",
+          "x-uber-app": "uberex-sandbox",
+          "strict-transport-security": "max-age=0",
+          "x-xss-protection": "1; mode=block"
+        },
+        "request": {
+          "uri": {
+            "protocol": "https:",
+            "slashes": true,
+            "auth": null,
+            "host": "sandbox-api.uber.com",
+            "port": 443,
+            "hostname": "sandbox-api.uber.com",
+            "hash": null,
+            "search": "?",
+            "query": "",
+            "pathname": "/v1/requests/current",
+            "path": "/v1/requests/current?",
+            "href": "https://sandbox-api.uber.com/v1/requests/current?"
+          },
+          "method": "GET",
+          "headers": {
+            "Authorization": " Bearer QVnOJwu7hcYJcqFYJmQbreNX7CTlJe"
+          }
+        }
+      },
+      "body": "{\"status\":\"accepted\",\"destination\":{\"latitude\":39.9087177183,\"longitude\":116.397387524},\"request_id\":\"f9542088-35d1-40b4-aeb4-8f751e0265e4\",\"driver\":{\"phone_number\":\"(555)555-5555\",\"rating\":4.9,\"picture_url\":\"https:\\/\\/d1a3f4spazzrp4.cloudfront.net\\/uberex-sandbox\\/images\\/driver.jpg\",\"name\":\"John\"},\"pickup\":{\"latitude\":39.9081903646,\"eta\":1,\"longitude\":116.3228380886},\"eta\":1,\"location\":{\"latitude\":39.9081903646,\"bearing\":-150,\"longitude\":116.3228380886},\"vehicle\":{\"make\":\"Toyota\",\"picture_url\":\"https:\\/\\/d1a3f4spazzrp4.cloudfront.net\\/uberex-sandbox\\/images\\/prius.jpg\",\"model\":\"Prius\",\"license_plate\":\"UBER-PLATE\"},\"surge_multiplier\":1.0}"
+    },
+    "status": "0",
+    "message": "ok"
+  }
+}
+```
+
+__uber::request__
+
+params
+
+```
+{
+	access_token : access token of user
+}
+```
+
+data
+
+```
+{
+  "result": {
+    "data": {
+      "status": "processing",
+      "request_id": "f9542088-35d1-40b4-aeb4-8f751e0265e4",
+      "driver": null,
+      "eta": null,
+      "location": null,
+      "vehicle": null,
+      "surge_multiplier": 1
+    },
+    "status": "0",
+    "message": "ok"
+  }
+}
+```
+
+__uber::access_token__
+
+params
+
+```
+{
+    request_id:
+    state:targer request state
+}
+```
+
+data
+
+```
+{
+  "result": {
+    "status": "0",
+    "message": "ok"
+  }
+}
+```
