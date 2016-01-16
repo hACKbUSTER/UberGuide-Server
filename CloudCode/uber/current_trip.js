@@ -4,7 +4,7 @@ module.exports = function(req,res){
             "Authorization":" Bearer " + user.get('access_token')
         });
     }).then(function(body){
-        return res.success(library.stdReturn(body));
+        return res.success(library.stdReturn(JSON.parse(body.body)));
     }).catch(function(e){
         return res.error(library.stdIntError(e));
     });
