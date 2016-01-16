@@ -1,3 +1,5 @@
+var request = require('request');
+
 var config = {
     client_id:"O3a23ihYeCsHy0RR-gchaipSPwvzEAhi",
     app_id:"O3a23ihYeCsHy0RR-gchaipSPwvzEAhi",
@@ -10,20 +12,59 @@ var CONST = {
     UBER_AUTH_SERVER:"https://login.uber.com.cn/oauth/v2/authorize"
 };
 
-var request = require('request');
+var readLib = require('read-lib');
+global.library = readLib(__dirname + "/lib");
+
+var acl = readLib(__dirname + "/ACL");
+var ACL = {};
+for(var _i in acl){
+    ACL[_i] = AV.Object.extend(_i,acl[_i]);
+}
+global.ACL = ACL;
+
 
 var querystring = require('querystring');
-var get = function(baseUrl,query,header){
+global._Get = function(baseUrl,query,header){
     if(!header){
         header = {};
     }
     if(!/'\/$'/.test(baseUrl)){
         baseUrl += "/";
     }
+    var url =
+            baseUrl
+            + "?"
+            + querystring.stringify(query);
+    console.log(url);
     return new Promise(function(resolve,reject){
-        request.get(baseUrl + "?" + querystring.stringify())
-    })
-}
+        request.get(
+            url
+            ,function(e,r,body){
+                if(e){
+                    return reject(e);
+                }else{
+                    return resolve({
+                        response:r,
+                        body:body
+                    });
+                }
+            });
+    });
+};
+
+_Get("https://sandbox-api.uber.com.cn/v1/products?latitude=37.7759792&longitude=-122.41823",{
+    response_type:"code",
+    client_id:config.client_id
+},{
+    headers:{
+        "Authorization":" Token " + config.server_token
+    }
+}).then(function(all){
+    console.log(all.body);
+    console.log("done");
+}).catch(function(e){
+    console.error(e);
+});
 
 
 

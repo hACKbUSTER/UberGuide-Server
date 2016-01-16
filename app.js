@@ -43,7 +43,10 @@ app.use(function(req, res, next) {
 });
 
 app.get('/', function(req, res) {
-  res.render('index', { currentTime: new Date() });
+    console.log(req);
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+    console.log(req.url);
+    res.end();
 });
 
 // 可以将一类的路由单独保存在一个文件中
