@@ -12,9 +12,9 @@ common data
 
 ## Preferences
 
-** get preferences in this city **
+__get preferences in city__
 
-** GET ** `/api/city/tags/:CITY_ID`
+__city::tag::get__
 
 data:
 
@@ -27,7 +27,7 @@ data:
 }]
 ```
 
-** POST ** `/api/city/tags/`
+__city::tag::post__
 
 params: 
 
