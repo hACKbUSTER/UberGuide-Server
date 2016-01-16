@@ -19,7 +19,7 @@
         "ejs": "2.3.1",
         "express": "4.12.3",
         "leanengine": "^0.2.0",
-	    "read-lib": "0.0.4",
+	    "read-lib": "0.0.5",
         "request" : "*"
     }
 }

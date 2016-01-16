@@ -1,5 +1,5 @@
 module.exports = function(request, response) {
-	var query = new AV.Query('Tag');
+	var query = new AV.Query(ACL.Tag);
 	query.equalTo('cityCode', request.params.cityCode || 'PEK');
 
 	query.find({
