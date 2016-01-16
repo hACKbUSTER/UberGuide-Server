@@ -21,7 +21,8 @@ data:
 ```
 [{
 	_id : "",
-	label : "",
+	zhLabel : "",
+	enLabel : "",
 	imageSrc : ""
 }]
 ```
