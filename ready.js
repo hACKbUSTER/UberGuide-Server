@@ -12,12 +12,16 @@ var CONST = {
 
 var request = require('request');
 
+var querystring = require('querystring');
 var get = function(baseUrl,query,header){
     if(!header){
         header = {};
     }
+    if(!/'\/$'/.test(baseUrl)){
+        baseUrl += "/";
+    }
     return new Promise(function(resolve,reject){
-        request
+        request.get(baseUrl + "?" + querystring.stringify())
     })
 }
 
