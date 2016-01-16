@@ -20,10 +20,11 @@ data:
 
 ```
 [{
-	_id : "",
-	zhLabel : "",
-	enLabel : "",
-	imageSrc : ""
+	_id : "569a062b60b26385cc99e9ec",
+	zhLabel : "教育",
+	enLabel : "Education",
+	imageSrc : "http://magic_ride.leanapp.cn/images/education.jpg",
+	cityCode : "PEK"
 }]
 ```
 
