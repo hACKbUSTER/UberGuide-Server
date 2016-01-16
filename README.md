@@ -42,7 +42,7 @@ params:
 
 如有多个tags，显示“探索”
 如果只有一个tag，显示 tag 的 label
-
+    
 ## Places
 
 __city::place::get__
@@ -61,6 +61,43 @@ __city::place::get__
 	"updatedAt": "2016-01-16T13:51:45.190Z"
 }
 ```
+
+## 
+
+__closeto::get__
+
+params
+
+```
+{
+	index : [0-3]
+}
+```
+
+data
+
+```
+{
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              "116.3952912",
+              "39.908724"
+            ]
+          },
+          "properties": {
+            "name": "天安门"
+          }
+        }
+      ]
+    }
+```
+
+## Current
 
 __current::get__
 
@@ -102,7 +139,7 @@ data
 
 
 
-
+## Uber
 
 
 __uber::access_token__
