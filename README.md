@@ -45,33 +45,57 @@ params:
 
 ## Places
 
-** GET ** `/api/city/place/:CITY_ID`
+__city::place::get__
 
 ```
 {
-	_id : "",
-	name : "天安门",
-	latitude : "5.4",
-	longitude : "12.7",
-	description : "天安门就是六四事件发生的地点",
-	imageSrc : ""
+	"description": "始建于明朝永乐十五年（公元1417年），最初名叫“承天门”，寓“承天启运、受命于天”之意，是紫禁城的正门。既包含了皇帝是替天行使权力、理应万世至尊的意旨；又寓有“外安内和、长治久安”的含义。",
+	"zhName": "天安门",
+	"cityCode": "PEK",
+	"enName": "Tian'an men Square",
+	"longitude": "116.39739",
+	"imageSrc": "http://magic_ride.leanapp.cn/images/tiananmen.jpg",
+	"latitude": "39.90872",
+	"objectId": "569a289b60b21c04873c3862",
+	"createdAt": "2016-01-16T11:25:15.386Z",
+	"updatedAt": "2016-01-16T13:51:45.190Z"
 }
 ```
 
-** GET ** `/api/ride/place/:LONGITUDE/:LATITUDE`
+__current::get__
 
-longitude and latitude is your location 
+params
 
 ```
 {
-	_id : "",
-	name : "天安门",
-	latitude : "5.4",
-	longitude : "12.7",
-	description : "天安门就是六四事件发生的地点",
-	imageSrc : "",
-	relativeLocation : {
-		
-	}
+	index : [0-3],
+	
 }
+```
+
+data
+
+```
+[
+  {
+    "type": "message",
+    "data": "我们即将要抵达目的地 “天安门”"
+  },
+  {
+    "type": "location",
+    "data": {
+      "description": "始建于明朝永乐十五年（公元1417年），最初名叫“承天门”，寓“承天启运、受命于天”之意，是紫禁城的正门。既包含了皇帝是替天行使权力、理应万世至尊的意旨；又寓有“外安内和、长治久安”的含义。",
+      "zhName": "天安门",
+      "cityCode": "PEK",
+      "enName": "Tian'an men Square",
+      "longitude": "116.3952912",
+      "summary": "this is the summary",
+      "imageSrc": "http://magic_ride.leanapp.cn/images/tiananmen.jpg",
+      "latitude": "39.908724",
+      "objectId": "569a289b60b21c04873c3862",
+      "createdAt": "2016-01-16T11:25:15.386Z",
+      "updatedAt": "2016-01-16T14:41:33.091Z"
+    }
+  }
+]
 ```
