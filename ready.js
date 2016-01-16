@@ -3,10 +3,10 @@ var request = require('request');
 
 
 var config = {
-    client_id:"O3a23ihYeCsHy0RR-gchaipSPwvzEAhi",
+    client_id:"4Pm0nE1Hmz9_cFKw1RhD4xMcW_nCYUK4",
     app_id:"O3a23ihYeCsHy0RR-gchaipSPwvzEAhi",
-    server_token:"j2J0qaIqlR79ZKcVCv_3QT1fBSHfss9HAKjNNNdy",
-    app_key:"GSumF2ezFY1RL-6QlFiVfMxSbIw2LEDMa4loM_Ec"
+    server_token:"LhqsR2cTR2GiAsyUyyOJG2Ja6rDrBfu97-uP5wxC",
+    app_key:"EZpaS6Sl_fjdeNVbedBctJpf_JePO34ZArJQmk0Z"
 };
 
 var CONST = {
@@ -14,11 +14,12 @@ var CONST = {
     UBER_AUTH_SERVER:"https://login.uber.com.cn/oauth/v2/authorize"
 };
 
-var readLib = require('read-lib');
+var readLib = require('./read-lib.js');
 global.library = readLib(__dirname + "/lib");
 console.log(library);
 
 var acl = readLib(__dirname + "/ACL");
+console.log(acl);
 var ACL = {};
 for(var _i in acl){
     ACL[_i] = AV.Object.extend(_i,acl[_i]);

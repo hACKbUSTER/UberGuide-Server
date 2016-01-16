@@ -7,7 +7,7 @@ var AV = require('leanengine');
 require("./ready.js");
 
 
-var libs = require("read-lib")(__dirname + '/CloudCode');
+var libs = require("./read-lib.js")(__dirname + '/CloudCode');
 function loadCloudCode(targetLib,stack){
     for(var i in targetLib){
         if(typeof targetLib[i] == "function"){
