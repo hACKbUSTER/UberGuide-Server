@@ -10,7 +10,7 @@ var config = {
 };
 
 var CONST = {
-    UBER_API:"https://sandbox-api.uber.com.cn/",
+    UBER_API:"https://sandbox-api.uber.com",
     UBER_AUTH_SERVER:"https://login.uber.com.cn/oauth/v2/authorize"
 };
 
@@ -31,7 +31,6 @@ var querystring = require('querystring');
 global._Get = function(baseUrl,query,headers){
     var options = {};
     options.headers = {};
-    options.url = baseUrl;
     
     if(!headers){
         headers = {};
@@ -45,8 +44,8 @@ global._Get = function(baseUrl,query,headers){
             baseUrl
             + "?"
             + querystring.stringify(query);
-    console.log(url);
-    console.log(options);
+
+    options.url = url;
     return new Promise(function(resolve,reject){
         request(
             options
@@ -63,12 +62,12 @@ global._Get = function(baseUrl,query,headers){
     });
 };
 
-_Get("https://sandbox-api.uber.com.cn/v1/products",{
-    latitude:37.7759792,
-    longitude:-122.41823
+_Get("https://login.uber.com.cn/oauth/v2/authorize",{
+    response_type:"code",
+    scope:"request",
+    client_id:config.client_id
 },{
-//    "Authorization":" Token " + config.server_token
-    "Authorization":" Bearer"
+    "Authorization":" Token " + config.server_token
 }).then(function(all){
     console.log(all.body);
     console.log("done");
@@ -76,6 +75,26 @@ _Get("https://sandbox-api.uber.com.cn/v1/products",{
     console.error(e);
 });
 
+global._Post = function(url,data,headers){
+    var header = {};
+    for(var i in headers){
+        header[i] = headers[i];
+    }
+    console.log(url);
+    return new Promise(function(resolve,reject){
+        request.post({
+            url:url,
+            json:data,
+            headers:header
+        },function(err, httpResponse, body) {
+            if (err) {
+                return reject(err);
+            }else{
+                return resolve(body);
+            }
+        });
+    });
+};
 
 
 global.config = config;
