@@ -4,10 +4,7 @@ module.exports = function(req,res){
             "Authorization":" Bearer " + user.get('access_token')
         });
     }).then(function(body){
-        var location = JSON.parse(body.body).location;
-        return library.closeTo(location.latitude,location.longitude);
-    }).then(function(body){
-        return res.success(library.stdReturn(body));
+        return res.success(library.stdReturn(JSON.parse(body.body)));
     }).catch(function(e){
         return res.error(library.stdIntError(e));
     });

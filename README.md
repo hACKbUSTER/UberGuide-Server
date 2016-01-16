@@ -272,3 +272,32 @@ data
   }
 }
 ```
+    
+
+
+__uber::map__
+
+params
+
+```
+{
+    request_id:
+}
+```
+
+data
+
+```
+{
+  "result": {
+    "data": {
+      "href": "https://sandbox-api.uber.com/v1/sandbox/map",
+      "request_id": "7fec2d2a-f13a-4e51-b8c2-d653e550da66"
+    },
+    "status": "0",
+    "message": "ok"
+  }
+}
+
+```
+
