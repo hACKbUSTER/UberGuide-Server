@@ -30,7 +30,7 @@ data:
 
 __city::tag::post__
 
-params: 
+params:
 
 ```
 {
@@ -42,7 +42,7 @@ params:
 
 如有多个tags，显示“探索”
 如果只有一个tag，显示 tag 的 label
-    
+
 ## Places
 
 __city::place::get__
@@ -62,39 +62,67 @@ __city::place::get__
 }
 ```
 
-## 
+##
 
 __closeto::get__
 
-params
+GEO JSON data
 
 ```
 {
-	index : [0-3]
-}
-```
-
-data
-
-```
-{
-      "type": "FeatureCollection",
-      "features": [
-        {
-          "type": "Feature",
-          "geometry": {
-            "type": "Point",
-            "coordinates": [
-              "116.3952912",
-              "39.908724"
-            ]
-          },
-          "properties": {
-            "name": "天安门"
-          }
-        }
-      ]
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "116.312022",
+          "39.980893"
+        ]
+      },
+      "properties": {
+        "name": "新东方",
+        "tags": [
+          "education",
+          "technology"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "116.309881",
+          "39.984753"
+        ]
+      },
+      "properties": {
+        "name": "新浪",
+        "tags": [
+          "technology"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "116.313432",
+          "39.982216"
+        ]
+      },
+      "properties": {
+        "name": "优酷土豆",
+        "tags": [
+          "technology"
+        ]
+      }
     }
+  ]
+}
 ```
 
 ## Current
@@ -106,7 +134,7 @@ params
 ```
 {
 	index : [0-3],
-	
+
 }
 ```
 
@@ -272,7 +300,6 @@ data
   }
 }
 ```
-    
 
 
 __uber::map__
@@ -289,15 +316,8 @@ data
 
 ```
 {
-  "result": {
-    "data": {
       "href": "https://sandbox-api.uber.com/v1/sandbox/map",
       "request_id": "7fec2d2a-f13a-4e51-b8c2-d653e550da66"
-    },
-    "status": "0",
-    "message": "ok"
-  }
 }
-
 ```
 
