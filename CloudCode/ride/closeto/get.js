@@ -1,4 +1,4 @@
-function measure(latitudeA, longitudeA, latitudeB, longitudeB) {
+function getDistanceBetweenPoints(latitudeA, longitudeA, latitudeB, longitudeB) {
 	// generally used geo measurement function
     var R = 6378.137; // Radius of earth in KM
     var dLat = (latitudeB - latitudeA) * Math.PI / 180;
@@ -10,42 +10,40 @@ function measure(latitudeA, longitudeA, latitudeB, longitudeB) {
     return d * 1000; // meters
 }
 
-function formatGeoJson(result) {
-	return {
+function formatGeoJson() {
+	return arguments.length ? {
 		"type": "FeatureCollection",
-		"features": [
-			{
-				"type": "Feature",
-				"geometry": {
-					"type": "Point",
-					"coordinates": [result.longitude, result.latitude]
-				},
-				"properties": {
-					"name": result.zhName,
-					"summary": result.summmary
-				}
-			}
-		]
-	}
-};
+		"features": Array.prototype.slice.call(arguments)
+	} : false;
+}
+
+function formatOneFeature(result) {
+	return {
+		"type": "Feature",
+		"geometry": {
+			"type": "Point",
+			"coordinates": [result.longitude, result.latitude]
+		},
+		"properties": {
+			"name": result.name,
+			"summary": result.summmary,
+			"tags": result.tag
+		}		
+	};
+}
 
 var results = [];
 
 module.exports = function(request, response) {
-	new Promise(function(resolve) {
-		if(!results.length) {
-			var model = new AV.Query('Place');
-			model.addAscending('order');
-			model.find({
-				success : function(records) {
-					results = records;
-					resolve();
-				}
-			});
-		} else {
-			resolve();
+	var model = new AV.Query('Spot');
+
+	model.find({
+		success : function(records) {
+			var formatter = records.reduce(function(formatter, record) {
+				return formatter.bind(null, formatOneFeature(record._serverData));
+			}, formatGeoJson);
+
+			return response.success(library.stdReturn(formatter()));
 		}
-	}).then(function() {
-		return response.success(library.stdReturn(formatGeoJson(results[request.params.index]._serverData)));
 	});
 };
