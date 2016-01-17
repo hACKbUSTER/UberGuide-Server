@@ -4,13 +4,13 @@ var request = require('request');
 
 var config = {
     client_id:"4Pm0nE1Hmz9_cFKw1RhD4xMcW_nCYUK4",
-    app_id:"O3a23ihYeCsHy0RR-gchaipSPwvzEAhi",
-    server_token:"LhqsR2cTR2GiAsyUyyOJG2Ja6rDrBfu97-uP5wxC",
-    app_key:"EZpaS6Sl_fjdeNVbedBctJpf_JePO34ZArJQmk0Z"
+    app_id:"JE2DrYT_92kBN8ySHav13qYEj57lO6Yx",
+    server_token:"jL8RGdtvdFzvx4wXw-zkk6TmwIKNLVAQUJEjJI9W",
+    app_key:"RG04UNNERL7rhtdjlOeV-Jo0qo2PDHrDwvxWw42M"
 };
 
 var CONST = {
-    UBER_API:"https://sandbox-api.uber.com",
+    UBER_API:"https://sandbox-api.uber.com.cn",
     UBER_AUTH_SERVER:"https://login.uber.com.cn/oauth/v2/authorize"
 };
 
